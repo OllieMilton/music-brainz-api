@@ -2,7 +2,7 @@
 <project xmlns:ivy="antlib:org.apache.ivy.ant" basedir="." default="publish">
 	
 	<property name="build" value="build"/>
-	<ivy:settings file="/home/ollie/workspace/ivy_settings/ivysettings.xml" />
+	<ivy:settings file="../ivy_settings/ivysettings.xml" />
 	
 	<target name="clean">
 		<delete dir="${build}"/>
@@ -27,6 +27,7 @@
   	<target name="jar" depends="compile">
 		<!-- Build the jar file -->
 		<jar basedir="${build}" destfile="${build}/musicbrainz.jar"/>
+  		<fileset dir="src" includes="**/*.java"/>
 	</target>
 	
 	<target name="publish" depends="jar">
